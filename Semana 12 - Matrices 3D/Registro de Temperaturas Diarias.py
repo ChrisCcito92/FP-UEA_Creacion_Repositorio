@@ -119,14 +119,6 @@ temperaturas = [
     ]
 ]
 
-# Calcular el promedio de temperaturas para cada ciudad y semana
-for ciudad in temperaturas:
-    for semana in ciudad:
-        suma = 0
-        for dia in semana:
-            suma += dia['temp']
-        print(suma)
-
 # Funciòn que calcula el promedio de temperaturas por cada semana
 def calcular_prome(ciudad):
     for semana_index, semana in enumerate(ciudad, start=1):
@@ -145,12 +137,47 @@ while True:
     if opcion == "1":
         print("Ciudad elegida: Quito")
         calcular_prome(temperaturas[0])
-    if opcion == "2":
+    elif opcion == "2":
         print("Ciudad elegida: Guayaquil")
         calcular_prome(temperaturas[1])
-    if opcion == "3":
+    elif opcion == "3":
         print("Ciudad elegida: Cuenca")
         calcular_prome(temperaturas[2])
-    if opcion == "4":
+    elif opcion == "4":
         print("Hasta luego")
         break
+    else:
+        print("Opción no válida, por favor intente de nuevo.")
+
+# Semana 13 # Semana 13 # Semana 13 # Semana 13 # Semana 13 # Semana 13
+def calcular_promedio_ciudad(temperaturas):
+    """
+    Calcula la temperatura promedio de cada ciudad durante todo el período de semanas y días.
+
+    :param temperaturas: Lista 3D que contiene los datos de temperaturas.
+    :return: Diccionario con el nombre de la ciudad y su temperatura promedio.
+    """
+    ciudades_nombres = ["Quito", "Guayaquil", "Cuenca"]
+    promedios_ciudades = {}
+
+    for ciudad_index, ciudad in enumerate(temperaturas):
+        suma_total = 0
+        dias_totales = 0
+
+        # Sumar todas las temperaturas de todas las semanas y días
+        for semana in ciudad:
+            for dia in semana:
+                suma_total += dia['temp']
+                dias_totales += 1
+
+        # Calcular el promedio de la ciudad
+        promedio_ciudad = suma_total / dias_totales
+        promedios_ciudades[ciudades_nombres[ciudad_index]] = promedio_ciudad
+
+    return promedios_ciudades
+
+
+# Ejemplo de uso:
+promedios = calcular_promedio_ciudad(temperaturas)
+for ciudad, promedio in promedios.items():
+    print(f"Ciudad: {ciudad}, Promedio de temperatura: {promedio:.2f}ªC")
