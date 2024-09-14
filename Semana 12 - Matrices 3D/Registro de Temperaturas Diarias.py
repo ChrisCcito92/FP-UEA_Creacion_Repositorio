@@ -148,36 +148,3 @@ while True:
         break
     else:
         print("Opción no válida, por favor intente de nuevo.")
-
-# Semana 13 # Semana 13 # Semana 13 # Semana 13 # Semana 13 # Semana 13
-def calcular_promedio_ciudad(temperaturas):
-    """
-    Calcula la temperatura promedio de cada ciudad durante todo el período de semanas y días.
-
-    :param temperaturas: Lista 3D que contiene los datos de temperaturas.
-    :return: Diccionario con el nombre de la ciudad y su temperatura promedio.
-    """
-    ciudades_nombres = ["Quito", "Guayaquil", "Cuenca"]
-    promedios_ciudades = {}
-
-    for ciudad_index, ciudad in enumerate(temperaturas):
-        suma_total = 0
-        dias_totales = 0
-
-        # Sumar todas las temperaturas de todas las semanas y días
-        for semana in ciudad:
-            for dia in semana:
-                suma_total += dia['temp']
-                dias_totales += 1
-
-        # Calcular el promedio de la ciudad
-        promedio_ciudad = suma_total / dias_totales
-        promedios_ciudades[ciudades_nombres[ciudad_index]] = promedio_ciudad
-
-    return promedios_ciudades
-
-
-# Ejemplo de uso:
-promedios = calcular_promedio_ciudad(temperaturas)
-for ciudad, promedio in promedios.items():
-    print(f"Ciudad: {ciudad}, Promedio de temperatura: {promedio:.2f}ªC")
