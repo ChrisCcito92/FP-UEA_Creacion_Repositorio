@@ -119,18 +119,19 @@ temperaturas = [
     ]
 ]
 
+# Definimos la función que realiza el calculo de las tempreaturas y nos retorna el promedio por ciudad
 def calcular_promedio (temperaturas,ciudad_idx):
     ciudad = temperaturas[ciudad_idx]
-    suma_temperaturas = 0
-    tot_dias = 0
+    suma_temperaturas = 0 # la variable para almacenar la suma de todas las temperaturas
+    tot_dias = 0 # el contador que indicara cuantas temperatutras se ingresaron en la variable anterior
     for semana in ciudad:
         for dia in semana:
-            suma_temperaturas += dia['temp']
-            tot_dias += 1
+            suma_temperaturas += dia['temp'] # toma y suma la temperatura del diccionario en la variable
+            tot_dias += 1 # cuenta los dias que va tomando
     promedio = suma_temperaturas / tot_dias
     return promedio
 
-
+# generamos un menu interactivo que nos indica la ciudad que debemos tomar
 while True:
     print("Seleccione una ciudad")
     print("1- Quito")
@@ -138,18 +139,22 @@ while True:
     print("3- Cuenca")
     print("4- Salir")
     opcion = input("Ingrese la opción: ")
-
+# nos despliega la inforacion de la ciudad de Quito, asi como el promedio de las temperaturas diarias de las 4 semanas
     if opcion == "1":
         promedio = calcular_promedio(temperaturas, ciudad_idx=0)
         print(f'El promedio de la temperatura en Quito es: {promedio:.2f}ªC')
+# nos despliega la inforacion de la ciudad de Guayaquil, asi como el promedio de las temperaturas diarias de las 4 semanas
     elif opcion == "2":
         promedio = calcular_promedio(temperaturas, ciudad_idx=1)
         print(f'El promedio de la temperatura en Guayaquil es: {promedio:.2f}ªC')
+# nos despliega la inforacion de la ciudad de Cuenca, asi como el promedio de las temperaturas diarias de las 4 semanas
     elif opcion == "3":
         promedio = calcular_promedio(temperaturas, ciudad_idx=2)
         print(f'El promedio de la temperatura en Cuenca es: {promedio:.2f}ªC')
+# esta opción es para terminar el programa
     elif opcion == "4":
         print("Saliendo del programa...")
         break
+# no despliega esta opción en caso de haber ingresado otro valor diferente al mostrado en el menú
     else:
         print("Opción no válida. Intente nuevamente.")
