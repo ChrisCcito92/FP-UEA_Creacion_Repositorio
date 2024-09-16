@@ -139,15 +139,15 @@ while True:
     print("3- Cuenca")
     print("4- Salir")
     opcion = input("Ingrese la opción: ")
-# nos despliega la inforacion de la ciudad de Quito, asi como el promedio de las temperaturas diarias de las 4 semanas
+# nos despliega la información de la ciudad de Quito, así como el promedio de las temperaturas diarias de las 4 semanas
     if opcion == "1":
         promedio = calcular_promedio(temperaturas, ciudad_idx=0)
         print(f'El promedio de la temperatura en Quito es: {promedio:.2f}ªC')
-# nos despliega la inforacion de la ciudad de Guayaquil, asi como el promedio de las temperaturas diarias de las 4 semanas
+# nos despliega la información de la ciudad de Guayaquil, así como el promedio de las temperaturas diarias de las 4 semanas
     elif opcion == "2":
         promedio = calcular_promedio(temperaturas, ciudad_idx=1)
         print(f'El promedio de la temperatura en Guayaquil es: {promedio:.2f}ªC')
-# nos despliega la inforacion de la ciudad de Cuenca, asi como el promedio de las temperaturas diarias de las 4 semanas
+# nos despliega la información de la ciudad de Cuenca, así como el promedio de las temperaturas diarias de las 4 semanas
     elif opcion == "3":
         promedio = calcular_promedio(temperaturas, ciudad_idx=2)
         print(f'El promedio de la temperatura en Cuenca es: {promedio:.2f}ªC')

@@ -122,9 +122,9 @@ temperaturas = [
 # Funciòn que calcula el promedio de temperaturas por cada semana
 def calcular_prome(ciudad):
     for semana_index, semana in enumerate(ciudad, start=1):
-        suma = sum(dia['temp'] for dia in semana)
-        promedio = suma / len(semana)
-        print(f"Semana {semana_index}: Promedio de temperatura: {promedio: .2f}ªC")
+        suma = sum(dia['temp'] for dia in semana) # esta variable va a acumulando las temperaturas diarias por semana
+        promedio = suma / len(semana) # teniendo el valor total de la suma, la dividimos para el numero de días por semana
+        print(f"Semana {semana_index}: Promedio de temperatura: {promedio: .2f}ªC") # deplegamos el valor promedio de la semana
 
 # Menú y llamado a la función de cálculo
 while True:
@@ -134,17 +134,22 @@ while True:
     print("3- Cuenca")
     print("4- Salir")
     opcion = input("Ingrese la opción: ")
+    # nos despliega la información de la ciudad de Quito, así como el promedio por semana de las temperaturas
     if opcion == "1":
         print("Ciudad elegida: Quito")
         calcular_prome(temperaturas[0])
+    # nos despliega la información de la ciudad de Guayaquil, así como el promedio por semana de las temperaturas
     elif opcion == "2":
         print("Ciudad elegida: Guayaquil")
         calcular_prome(temperaturas[1])
+    # nos despliega la información de la ciudad de Cuenca, así como el promedio por semana de las temperaturas
     elif opcion == "3":
         print("Ciudad elegida: Cuenca")
         calcular_prome(temperaturas[2])
+    # esta opción es para terminar el programa
     elif opcion == "4":
         print("Hasta luego")
         break
+    # no despliega esta opción en caso de haber ingresado otro valor diferente al mostrado en el menú
     else:
         print("Opción no válida, por favor intente de nuevo.")
